@@ -1,3 +1,15 @@
 @import "tailwindcss";
 
+:root {
+  --main-font: "Geist", sans-serif;
+  --secondary-font: "Bricolage Grotesque", sans-serif;
+}
 
+body {
+  font-family: var(--main-font);
+  background: linear-gradient(90deg, #e0f7fa 0%, #fff9c4 50%, #e8f5e9 100%);
+}
+
+.header-logo {
+  font-family: var(--secondary-font);
+}

@@ -20,7 +20,7 @@ const CharactersCard = () => {
           </div>
         </header>
 
-        <div className="grid grid-cols-2 gap-3.75">
+        <div className="max-[420px]:grid-cols-1 grid grid-cols-2 gap-3.75">
           <ChooseCharacter isActive />
           <ChooseCharacter />
           <ChooseCharacter />
@@ -30,7 +30,7 @@ const CharactersCard = () => {
         </div>
       </article>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid lg:grid-cols-2 gap-6">
         <article className="flex h-37.5 items-center justify-between rounded-4xl border-[1.50px] border-white bg-white/45 px-6 py-5 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl">
           <div>
             <h2 className="mb-1 text-[24px] leading-tight font-extrabold text-[#4bc5fa]">

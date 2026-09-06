@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="mt-10">
+    <header className="px-2.5 mt-2.5 lg:mt-10">
       <div className="max-w-7xl mx-auto">
         <div className="bg-white/50 border border-white backdrop-blur-md  rounded-3xl">
           <div className="max-w-50 cursor-pointer">

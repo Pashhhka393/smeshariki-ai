@@ -33,7 +33,7 @@ const HeroCard = () => {
               type="text"
               placeholder="Привет, Крош! Как построить самую быструю ракету?"
             />
-            <div className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-2xl bg-[#4bc5fa] transition hover:bg-[#0ea3e3] active:scale-95">
+            <div className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-2xl bg-[#4bc5fa] transition hover:bg-[#0ea3e3] active:scale-95 max-[380]:h-7 max-[380]:w-7">
               <ArrowRight className="h-5 w-5 fill-white text-white" />
             </div>
           </form>

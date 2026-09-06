@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <Header />
         <div>{children}</div>
+        <Footer />
       </body>
     </html>
   );

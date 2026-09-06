@@ -33,18 +33,18 @@ const quickPrompts = [
 
 const QuickStartCard = () => {
   return (
-    <article className="py-10 px-10 col-span-4 border-[1.50px] border-white rounded-4xl backdrop-blur-xl shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] bg-white/45">
-      <div className="flex items-center justify-between  mb-5 ">
-        <Compass className="w-12 h-12 fill-yellow-300 text-white" />
-        <p className="w-full max-w-30 text-[#b78103] text-[11px] font-bold bg-[#fffde7] py-1.5 px-3 rounded-[100px] uppercase">
+    <article className="col-span-1 rounded-4xl border-[1.50px] border-white bg-white/45 px-10 py-10 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl lg:col-span-4">
+      <div className="mb-5 flex items-center justify-between">
+        <Compass className="h-12 w-12 fill-yellow-300 text-white" />
+        <p className="w-full max-w-30 rounded-[100px] bg-[#fffde7] px-3 py-1.5 text-[11px] font-bold text-[#b78103] uppercase">
           Быстрый старт
         </p>
       </div>
       <div>
-        <h1 className="text-[#1c252c] font-extrabold text-[26px]">
+        <h1 className="text-[26px] font-extrabold text-[#1c252c]">
           О чём спросить ИИ?
         </h1>
-        <p className="max-w-100 text-[#4f636f] leading-[143%] text-[14px] mt-2.5 mb-5">
+        <p className="mt-2.5 mb-5 max-w-100 text-[14px] leading-[143%] text-[#4f636f]">
           Выбери готовую тему, чтобы проверить способности наших круглых
           ассистентов
         </p>
@@ -53,14 +53,14 @@ const QuickStartCard = () => {
         {quickPrompts.map((item) => (
           <button
             key={item.id}
-            className="w-full flex items-center justify-center gap-2 bg-white/70 hover:bg-white hover:border-[#4bc5fa] hover:text-[#4bc5fa] text-[#4f636f] text-[13px] font-bold py-2.5 px-4 rounded-2xl border border-white shadow-xs transition-all active:scale-95 cursor-pointer"
+            className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white bg-white/70 px-4 py-2.5 text-[13px] font-bold text-[#4f636f] shadow-xs transition-all hover:border-[#4bc5fa] hover:bg-white hover:text-[#4bc5fa] active:scale-95"
             type="button"
           >
             <span>{item.emoji} </span>
             <span>{item.label}</span>
           </button>
         ))}
-      </div> 
+      </div>
     </article>
   );
 };

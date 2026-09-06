@@ -3,38 +3,42 @@ import { ArrowUpRight } from "lucide-react";
 
 const QuickChatCard = () => {
   return (
-    <article className="col-span-5 flex h-130 flex-col justify-between rounded-4xl border-[1.50px] border-white bg-white/45 px-5 py-5 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl">
-      <header>
-        <div className="flex items-center gap-1.5">
-          <div className="h-9 w-9 cursor-pointer">
+    <article className="col-span-1 flex h-130 flex-col justify-between rounded-4xl border-[1.50px] border-white bg-white/45 p-5 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl md:col-span-5">
+      <header className="flex w-full items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="h-9 w-9 shrink-0 cursor-pointer overflow-hidden rounded-full">
             <Image
-              className="h-full w-full rounded-full object-cover"
+              className="h-full w-full object-cover"
               src="/smeshariki/krosh.jpg"
               alt="smesharik-image"
               width={36}
               height={36}
             />
           </div>
-          <h2 className="text-[18px] font-extrabold">Крош AI</h2>
+          <h2 className="text-[18px] font-extrabold whitespace-nowrap text-[#1c252c]">
+            Крош AI
+          </h2>
         </div>
+        <span className="text-xs font-medium text-[#879ba6]">Онлайн</span>
       </header>
 
       <div className="mt-6 flex w-full flex-1 scrollbar-thin flex-col gap-4 overflow-y-auto pr-2">
-        <div className="ml-auto w-fit self-end rounded-xl bg-[#4bc5fa] px-4 py-3 text-[14px] leading-[140%] text-white">
+        <div className="ml-auto w-fit max-w-[80%] self-end rounded-xl bg-[#4bc5fa] px-4 py-3 text-[14px] leading-[140%] text-white shadow-xs">
           Крош, привет! Посоветуй, чем заняться в эти выходные?
         </div>
-        <div className="flex items-start gap-1.5">
-          <Image
-            className="cursor-pointer rounded-full"
-            src="/smeshariki/krosh.jpg"
-            alt="smesharik-image"
-            width={36}
-            height={36}
-          />
-          <div className="mr-auto w-fit self-start rounded-[20px] bg-[#7bd082] px-4 py-3">
-            <h2 className="mb-2.5 text-[12px] font-bold whitespace-nowrap text-white">
-              Крош
-            </h2>
+
+        <div className="flex max-w-[85%] items-start gap-2">
+          <div className="h-9 w-9 shrink-0 cursor-pointer overflow-hidden rounded-full">
+            <Image
+              className="h-full w-full object-cover"
+              src="/smeshariki/krosh.jpg"
+              alt="smesharik-image"
+              width={36}
+              height={36}
+            />
+          </div>
+          <div className="mr-auto w-fit rounded-[20px] bg-[#7bd082] px-4 py-3 shadow-xs">
+            <h2 className="mb-1 text-[12px] font-bold text-white">Крош</h2>
             <p className="text-[14px] leading-[140%] text-white">
               Ёлки-иголки! Конечно же прыгать выше солнца! Мы с Ёжиком устроим
               мега-турнир по скоростному катанию на морковках! Хочешь с нами?
@@ -42,18 +46,19 @@ const QuickChatCard = () => {
           </div>
         </div>
       </div>
-      <form
-        className="z-10 mt-5 flex w-full items-center justify-between rounded-[20px] bg-white px-3.75 py-2.5"
-        action=""
-      >
+
+      <form className="mt-5 flex w-full items-center justify-between rounded-[20px] bg-white px-4 py-2.5 shadow-xs">
         <input
-          className="flex-1 border-none text-[#879ba6] outline-none"
+          className="flex-1 border-none text-sm text-[#4f636f] outline-none placeholder:text-[#879ba6]"
           placeholder="Напиши Крошу что-нибудь..."
           type="text"
         />
-        <div className="w-fit cursor-pointer rounded-full bg-[#4bc5fa] px-3.25 py-2.5 transition hover:bg-[#23bafb] active:scale-95">
-          <ArrowUpRight className="w-3.75 text-white" />
-        </div>
+        <button
+          type="submit"
+          className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full bg-[#4bc5fa] transition-all hover:bg-[#23bafb] active:scale-95"
+        >
+          <ArrowUpRight className="h-5 w-5 text-white" />
+        </button>
       </form>
     </article>
   );

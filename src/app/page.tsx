@@ -7,20 +7,20 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="max-w-7xl mx-auto">
-      <section className="mt-8 pb-8 grid grid-cols-12 gap-6">
+    <main className="mx-auto max-w-7xl">
+      <section className="mt-8 grid grid-cols-12 gap-6 pb-8">
         <HeroCard />
         <QuickStartCard />
         <QuickChatCard />
         <div className="col-span-7 flex flex-col justify-between gap-6">
-          <article className="border-[1.50px] py-5 px-5 border-white rounded-4xl backdrop-blur-xl shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] bg-white/45">
+          <article className="rounded-4xl border-[1.50px] border-white bg-white/45 px-5 py-5 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl">
             <header className="mb-5">
               <div className="flex items-center justify-between">
-                <h1 className="text-[#1c252c] text-[20px] font-extrabold">
+                <h1 className="text-[20px] font-extrabold text-[#1c252c]">
                   Выбери собеседника
                 </h1>
                 <Link
-                  className="text-[#4bc5fa] text-[13px] font-semibold hover:text-[#2babe2] transition"
+                  className="text-[13px] font-semibold text-[#4bc5fa] transition hover:text-[#2babe2]"
                   href=""
                 >
                   Всего 9 героев →

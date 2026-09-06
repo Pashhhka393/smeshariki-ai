@@ -24,7 +24,7 @@ const HeroCard = () => {
             className="w-full max-w-135 flex items-center gap-1.5 border-2 py-3 px-2.5 rounded-[20px] border-[#4bc5fa] bg-white"
             action=""
           >
-            <div className="border-2 max-w-5.75 border-[#879ba6] rounded-[100%] cursor-pointer hover:bg-gray-400  hover:border-879ba6 transition">
+            <div className="border-2 max-w-5.75 border-[#879ba6] rounded-[100%] cursor-pointer hover:bg-gray-400 active:scale-95 hover:border-879ba6 transition">
               <X className="text-[#879ba6] hover:text-white max-w-4.75 h-4.75" />
             </div>
             <input
@@ -32,7 +32,7 @@ const HeroCard = () => {
               type="text"
               placeholder="Привет, Крош! Как построить самую быструю ракету?"
             />
-            <div className="max-w-9 h-9 bg-[#4bc5fa] px-1.25 py-1.25 rounded-2xl cursor-pointer hover:bg-[#0ea3e3] transition">
+            <div className="max-w-9 h-9 bg-[#4bc5fa] px-1.25 py-1.25 rounded-2xl cursor-pointer hover:bg-[#0ea3e3] active:scale-95 transition">
               <ArrowRight className="text-white fill-white" />
             </div>
           </form>

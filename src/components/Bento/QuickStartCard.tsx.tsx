@@ -60,7 +60,7 @@ const QuickStartCard = () => {
             <span>{item.label}</span>
           </button>
         ))}
-      </div>
+      </div> 
     </article>
   );
 };

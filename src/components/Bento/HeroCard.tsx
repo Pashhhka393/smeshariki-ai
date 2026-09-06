@@ -41,7 +41,7 @@ const HeroCard = () => {
         <div className="w-70 h-70 rounded-full overflow-hidden shrink-0 border-4 border-white/60 shadow-inner">
           <Image
             className="w-full h-full object-cover"
-            src="/smeshariki-preview.jpg"
+            src="/smeshariki-preview-2.jpg"
             alt="preview-image"
             width={280}
             height={280}

@@ -8,11 +8,11 @@ const CharactersCard = () => {
       <article className="rounded-4xl border-[1.50px] border-white bg-white/45 px-6 py-6 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl">
         <header className="mb-5">
           <div className="flex items-center justify-between">
-            <h1 className="text-[20px] font-extrabold text-[#1c252c]">
+            <h1 className="max-[420]:text-[16px]  text-[20px] font-extrabold text-[#1c252c]">
               Выбери собеседника
             </h1>
             <Link
-              className="text-[13px] font-semibold text-[#4bc5fa] transition hover:text-[#2babe2]"
+              className="max-[420]:text-[10px] text-[13px] font-semibold text-[#4bc5fa] transition hover:text-[#2babe2]"
               href="/characters"
             >
               Всего 6 героев →

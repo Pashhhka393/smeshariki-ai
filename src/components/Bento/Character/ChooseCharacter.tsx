@@ -7,7 +7,7 @@ interface ChooseCharacterProps {
 const ChooseCharacter = ({ isActive }: ChooseCharacterProps) => {
   return (
     <div
-      className={`cursor-pointer rounded-[20px] px-2 py-2.5 shadow-[0_4px_12px_rgba(0,0,0,0.03)] transition-all active:scale-98 ${
+      className={`cursor-pointer rounded-[20px] px-2 py-2.5 shadow-[0_4px_12px_rgba(0,0,0,0.03)] transition-all active:scale-98 hover:scale-99 ${
         isActive
           ? "border border-[#4bc5fa] bg-white"
           : "border border-transparent bg-white/30 hover:bg-gray-100"

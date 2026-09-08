@@ -36,7 +36,7 @@ const QuickStartCard = () => {
     <article className="col-span-1 rounded-4xl border-[1.50px] border-white bg-white/45 px-10 py-10 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl lg:col-span-4">
       <div className="mb-5 flex items-center justify-between">
         <Compass className="h-12 w-12 fill-yellow-300 text-white" />
-        <p className="w-full max-w-30 rounded-[100px] bg-[#fffde7] px-3 py-1.5 text-[11px] font-bold text-[#b78103] uppercase">
+        <p className="w-full max-w-30 rounded-[100px] bg-[#fffde7] px-3 py-1.5 text-[10px] font-bold text-[#b78103] uppercase">
           Быстрый старт
         </p>
       </div>

@@ -1,7 +1,19 @@
+"use client";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { Character, useCharacterStore } from "@/store/useCharacterStore";
+import { useEffect } from "react";
 
 const QuickChatCard = () => {
+  //Zustand
+  const selectedCharacter: Character = useCharacterStore(
+    (state) => state.selectedCharacter,
+  );
+
+  useEffect(() => {
+    localStorage.setItem("character", JSON.stringify(selectedCharacter));
+  });
+
   return (
     <article className="col-span-1 flex h-130 flex-col justify-between rounded-4xl border-[1.50px] border-white bg-white/45 p-5 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl md:col-span-5">
       <header className="flex w-full items-center justify-between">
@@ -9,7 +21,7 @@ const QuickChatCard = () => {
           <div className="h-9 w-9 shrink-0 cursor-pointer overflow-hidden rounded-full">
             <Image
               className="h-full w-full object-cover"
-              src="/smeshariki/krosh.jpg"
+              src={selectedCharacter.avatarImg}
               alt="smesharik-image"
               width={36}
               height={36}
@@ -17,7 +29,7 @@ const QuickChatCard = () => {
           </div>
           <div>
             <h2 className="text-[18px] font-extrabold whitespace-nowrap text-[#1c252c]">
-              Крош AI
+              {selectedCharacter.name} AI
             </h2>
             <span className="text-[11px] text-green-500">В сети</span>
           </div>
@@ -55,15 +67,15 @@ const QuickChatCard = () => {
           <div className="mb-3 h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-sm">
             <Image
               className="h-full w-full object-cover"
-              src="/smeshariki/krosh.jpg"
-              alt="Крош AI"
+              src={selectedCharacter.avatarImg}
+              alt="img-chracter"
               width={56}
               height={56}
             />
           </div>
 
           <h3 className="mb-1.5 text-[17px] font-black text-[#1c252c]">
-            Ёлки-иголки! Я на связи!
+            {selectedCharacter.welcomeMessage}
           </h3>
 
           <p className="text-[12px] leading-relaxed font-medium text-[#4f636f]">

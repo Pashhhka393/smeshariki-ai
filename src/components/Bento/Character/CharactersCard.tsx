@@ -1,19 +1,23 @@
+"use client";
 import ChooseCharacter from "@/components/Bento/Character/ChooseCharacter";
+import { useCharacterStore } from "@/store/useCharacterStore";
 import { Code2, Rocket } from "lucide-react";
 import Link from "next/link";
 
-const smesharikiInfo = [
+export const smesharikiInfo = [
   {
     name: "Крош",
     avatarImg: "/smeshariki/krosh.jpg",
     description: "Всегда готов к весёлым играм, спорту и безумным идеям!",
     keyWord: "Энергия",
+    welcomeMessage: "Ёлки-иголки! Я на связи!",
   },
   {
     name: "Нюша",
     avatarImg: "/smeshariki/Nuysha.jpg",
     description: "Подскажет лучший наряд, научит этикету и расскажет сказку.",
     keyWord: "Мода",
+    welcomeMessage: "Приветик! Готова поболтать о прекрасном!",
   },
   {
     name: "Лосяш",
@@ -21,6 +25,7 @@ const smesharikiInfo = [
     description:
       "Поможет с домашкой, физикой, астрономией и ответит на любые 'почему'.",
     keyWord: "Наука",
+    welcomeMessage: "Феноменально! Любезнейший друг мой, я на связи!",
   },
   {
     name: "Ежик",
@@ -28,6 +33,7 @@ const smesharikiInfo = [
     description:
       "Поможет навести порядок, разобраться в себе и покажет коллекцию фантиков.",
     keyWord: "Логика",
+    welcomeMessage: "Здравствуй! Давай всё спокойно обсудим.",
   },
   {
     name: "Бараш",
@@ -35,6 +41,7 @@ const smesharikiInfo = [
     description:
       "Сочинит красивое стихотворение, песню и выслушает грустные мысли.",
     keyWord: "Поэзия",
+    welcomeMessage: "Ах, вдохновение! О чём сочиним стихи?",
   },
   {
     name: "Копатыч",
@@ -42,10 +49,19 @@ const smesharikiInfo = [
     description:
       "Поделится секретами садоводства, труда и расскажет душевные истории.",
     keyWord: "Природа",
+    welcomeMessage: "Укуси меня пчела! Здорово, дружище, чем помочь?",
   },
 ];
 
 const CharactersCard = () => {
+  //Zustand
+  const selectedCharacter = useCharacterStore(
+    (state) => state.selectedCharacter,
+  );
+  const setSelectedCharacter = useCharacterStore(
+    (state) => state.setSelectedCharacter,
+  );
+
   return (
     <div className="col-span-1 flex flex-col justify-between gap-6 md:col-span-7">
       <article className="rounded-4xl border-[1.50px] border-white bg-white/45 px-6 py-6 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl">
@@ -72,6 +88,8 @@ const CharactersCard = () => {
                 avatarImg={smesharik.avatarImg}
                 description={smesharik.description}
                 keyWord={smesharik.keyWord}
+                isActive={selectedCharacter.name === smesharik.name}
+                onClick={() => setSelectedCharacter(smesharik)}
               />
             );
           })}

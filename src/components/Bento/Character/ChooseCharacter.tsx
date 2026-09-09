@@ -1,10 +1,12 @@
 import Image from "next/image";
 
 interface ChooseCharacterProps {
+  isActive?: boolean;
   name: string;
   avatarImg: string;
   description: string;
   keyWord: string;
+  onClick: () => void;
 }
 
 const keyWordColors: Record<string, string> = {
@@ -21,11 +23,20 @@ const ChooseCharacter = ({
   avatarImg,
   description,
   keyWord,
+  isActive,
+  onClick,
 }: ChooseCharacterProps) => {
   const currentBadgeColor = keyWordColors[keyWord] || "bg-white/30";
 
   return (
-    <div className="cursor-pointer rounded-[20px] border border-transparent bg-white/30 px-2 py-2.5 shadow-[0_4px_12px_rgba(0,0,0,0.03)] transition-all hover:bg-white/60 active:scale-98">
+    <div
+      className={`cursor-pointer rounded-[20px] px-2 py-2.5 shadow-[0_4px_12px_rgba(0,0,0,0.03)] transition-all active:scale-98 ${
+        isActive
+          ? "border border-[#4bc5fa] bg-white shadow-sm"
+          : "border border-transparent bg-white/30 hover:bg-white/60"
+      }`}
+      onClick={onClick}
+    >
       <div className="flex items-center gap-2.5">
         <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full">
           <Image

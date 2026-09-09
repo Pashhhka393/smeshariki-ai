@@ -15,14 +15,17 @@ const QuickChatCard = () => {
               height={36}
             />
           </div>
-          <h2 className="text-[18px] font-extrabold whitespace-nowrap text-[#1c252c]">
-            Крош AI
-          </h2>
+          <div>
+            <h2 className="text-[18px] font-extrabold whitespace-nowrap text-[#1c252c]">
+              Крош AI
+            </h2>
+            <span className="text-[11px] text-green-500">В сети</span>
+          </div>
         </div>
-        <span className="text-xs font-medium text-[#879ba6]">Онлайн</span>
       </header>
 
-      <div className="mt-6 flex w-full flex-1 scrollbar-thin flex-col gap-4 overflow-y-auto pr-2">
+      {/* Сообщения в чате */}
+      {/* <div className="mt-6 flex w-full flex-1 scrollbar-thin flex-col gap-4 overflow-y-auto pr-2">
         <div className="ml-auto w-fit max-w-[80%] self-end rounded-xl bg-[#4bc5fa] px-4 py-3 text-[14px] leading-[140%] text-white shadow-xs">
           Крош, привет! Посоветуй, чем заняться в эти выходные?
         </div>
@@ -44,6 +47,29 @@ const QuickChatCard = () => {
               мега-турнир по скоростному катанию на морковках! Хочешь с нами?
             </p>
           </div>
+        </div>
+      </div> */}
+
+      <div className="flex flex-1 items-center justify-center p-2">
+        <div className="flex max-w-70 flex-col items-center justify-center rounded-3xl border border-white bg-white/50 p-6 text-center shadow-xs backdrop-blur-md">
+          <div className="mb-3 h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-sm">
+            <Image
+              className="h-full w-full object-cover"
+              src="/smeshariki/krosh.jpg"
+              alt="Крош AI"
+              width={56}
+              height={56}
+            />
+          </div>
+
+          <h3 className="mb-1.5 text-[17px] font-black text-[#1c252c]">
+            Ёлки-иголки! Я на связи!
+          </h3>
+
+          <p className="text-[12px] leading-relaxed font-medium text-[#4f636f]">
+            Напиши мне что-нибудь в поле ниже или выбери готовую тему из
+            быстрого старта
+          </p>
         </div>
       </div>
 

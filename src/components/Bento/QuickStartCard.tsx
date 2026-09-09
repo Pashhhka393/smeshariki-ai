@@ -4,28 +4,24 @@ const quickPrompts = [
   {
     id: "code",
     label: "Лабы в КГПК",
-    emoji: "💻",
     prompt:
       "Лосяш, помоги мне с лабораторной работой! Объясни простыми словами тему, которую нам сегодня задали в КГПК, чтобы даже Крош понял!",
   },
   {
     id: "project",
     label: "Тема для проекта",
-    emoji: "🚀",
     prompt:
       "Крош, придумай самую безумную и гениальную идею для защиты проекта, с которым мы сможем получить максимальное количество баллов!",
   },
   {
     id: "poem",
     label: "Стих про сессию",
-    emoji: "✍️",
     prompt:
       "Бараш, сочини красивое и грустное стихотворение про приближающуюся сессию в колледже КГПК.",
   },
   {
     id: "lifehack",
     label: "Совет студенту",
-    emoji: "🛠️",
     prompt:
       "Копатыч, дай мудрый совет студенту КГПК: как не выгореть на парах, всё успеть и стать настоящим мастером своего дела!",
   },
@@ -56,7 +52,6 @@ const QuickStartCard = () => {
             className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white bg-white/70 px-4 py-2.5 text-[13px] font-bold text-[#4f636f] shadow-xs transition-all hover:border-[#4bc5fa] hover:bg-white hover:text-[#4bc5fa] active:scale-95"
             type="button"
           >
-            <span>{item.emoji} </span>
             <span>{item.label}</span>
           </button>
         ))}

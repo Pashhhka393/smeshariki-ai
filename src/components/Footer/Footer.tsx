@@ -16,7 +16,7 @@ const Footer = () => {
           Павел Шевелюхин
         </Link>
       </p>
-      <p className="text-[12px] text-[#879ba6]/80 flex items-center justify-center gap-2">
+      <p className="text-[14px] text-[#879ba6]/80 flex items-center justify-center gap-2">
         <span>Next.js</span> • <span>TypeScript</span> •
         <span>Tailwind CSS</span> • <span>GigaChat API</span>
       </p>

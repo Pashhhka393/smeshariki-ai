@@ -1,37 +1,51 @@
-"use client"
+"use client";
 import { useCharacterStore } from "@/store/useCharacterStore";
 import { Compass } from "lucide-react";
+import { smesharikiInfo } from "./Character/CharactersCard";
 
 const quickPrompts = [
   {
     id: "code",
     label: "Лабы в КГПК",
+    characterName: "Лосяш",
     prompt:
       "Лосяш, помоги мне с лабораторной работой! Объясни простыми словами тему, которую нам сегодня задали в КГПК, чтобы даже Крош понял!",
   },
   {
     id: "project",
     label: "Тема для проекта",
+    characterName: "Крош",
     prompt:
       "Крош, придумай самую безумную и гениальную идею для защиты проекта, с которым мы сможем получить максимальное количество баллов!",
   },
   {
     id: "poem",
     label: "Стих про сессию",
+    characterName: "Бараш",
     prompt:
       "Бараш, сочини красивое и грустное стихотворение про приближающуюся сессию в колледже КГПК.",
   },
   {
     id: "lifehack",
     label: "Совет студенту",
+    characterName: "Копатыч",
     prompt:
       "Копатыч, дай мудрый совет студенту КГПК: как не выгореть на парах, всё успеть и стать настоящим мастером своего дела!",
   },
 ];
 
 const QuickStartCard = () => {
-  const { setInputPrompt } = useCharacterStore();
+  const { setInputPrompt, setSelectedCharacter } = useCharacterStore();
 
+  const handlePromptClick = (promptText: string, characterName: string) => {
+    setInputPrompt(promptText);
+    const foundCharacter = smesharikiInfo.find(
+      (hero) => hero.name === characterName,
+    );
+    if (foundCharacter) {
+      setSelectedCharacter(foundCharacter);
+    }
+  };
   return (
     <article className="col-span-1 rounded-4xl border-[1.50px] border-white bg-white/45 px-10 py-10 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl lg:col-span-4">
       <div className="mb-5 flex items-center justify-between">
@@ -55,7 +69,7 @@ const QuickStartCard = () => {
             key={item.id}
             className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white bg-white/70 px-4 py-2.5 text-[13px] font-bold text-[#4f636f] shadow-xs transition-all hover:border-[#4bc5fa] hover:bg-white hover:text-[#4bc5fa] active:scale-95"
             type="button"
-            onClick={() => setInputPrompt(item.prompt)}
+            onClick={() => handlePromptClick(item.prompt, item.characterName)}
           >
             <span>{item.label}</span>
           </button>

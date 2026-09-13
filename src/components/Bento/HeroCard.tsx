@@ -4,9 +4,9 @@ import { ArrowRight, Sparkles, X } from "lucide-react";
 const HeroCard = () => {
   return (
     <article className="col-span-1 rounded-4xl border-[1.50px] border-white bg-white/45 px-6 py-8 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl lg:col-span-8 lg:px-10 lg:py-10">
-      <div className="mb-4 flex max-w-47.5 items-center gap-1.5 rounded-[100px] bg-[#e1f5fe] px-1.5 py-1.5">
+      <div className="mb-4 flex w-fit items-center gap-1.5 rounded-[100px] bg-[#e1f5fe] px-1.5 py-1.5">
         <Sparkles className="h-5 shrink-0 fill-amber-300 text-amber-200" />
-        <span className="text-[12px] font-bold whitespace-nowrap text-[#4bc5fa]">
+        <span className="text-[14px] font-bold whitespace-nowrap text-[#4bc5fa]">
           Твой новый умный друг
         </span>
       </div>
@@ -29,7 +29,7 @@ const HeroCard = () => {
               <X className="h-3.5 w-3.5 text-[#879ba6] hover:text-white" />
             </div>
             <input
-              className="flex-1 border-none bg-transparent text-sm text-[#4f636f] outline-none placeholder:text-[13px]"
+              className="flex-1 border-none bg-transparent text-sm text-[#4f636f] outline-none placeholder:text-[14px]"
               type="text"
               placeholder="Привет, Крош! Как построить самую быструю ракету?"
             />

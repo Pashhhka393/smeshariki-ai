@@ -88,7 +88,7 @@ const QuickChatCard = () => {
       <form className="mt-5 flex w-full items-center justify-between rounded-[20px] bg-white px-4 py-2.5 shadow-xs">
         <input
           className="flex-1 border-none text-sm outline-none placeholder:text-[#879ba6]"
-          placeholder="Напиши Крошу что-нибудь..."
+          placeholder="Напиши ассистенту что-нибудь..."
           type="text"
         />
         <button

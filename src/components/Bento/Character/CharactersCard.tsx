@@ -102,7 +102,7 @@ const CharactersCard = () => {
             <h2 className="mb-1 text-[24px] leading-tight font-extrabold text-[#4bc5fa]">
               Next.js + AI
             </h2>
-            <p className="max-w-52.5 text-[12px] leading-snug text-[#4f636f]">
+            <p className="max-w-52.5 text-[13px] leading-snug text-[#4f636f]">
               React 19, TypeScript, Tailwind CSS, GigaChat API
             </p>
           </div>
@@ -117,7 +117,7 @@ const CharactersCard = () => {
             <h2 className="mb-1 text-[22px] leading-tight font-black">
               Начать общение
             </h2>
-            <p className="max-w-40 text-[11px] leading-tight text-white/90">
+            <p className="max-w-40 text-[13px] leading-tight text-white/90">
               Каждый герой обладает нейросетевой специализацией
             </p>
           </div>

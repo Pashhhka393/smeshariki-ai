@@ -51,7 +51,7 @@ const ChooseCharacter = ({
           <div className="flex items-center justify-between gap-1">
             <h2 className="text-sm font-bold text-[#1c252c]">{name}</h2>
             <span
-              className={`shrink-0 rounded-[10px] px-2 py-0.5 text-[10px] font-semibold text-[#1c252c] ${currentBadgeColor}`}
+              className={`shrink-0 rounded-[10px] px-2 py-0.5 text-[12px] font-semibold text-[#1c252c] ${currentBadgeColor}`}
             >
               {keyWord}
             </span>

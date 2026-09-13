@@ -1,21 +1,15 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { useCharacterStore } from "@/store/useCharacterStore";
-
-interface Messages {
-  id: string;
-  role: string;
-  content: string;
-}
+import { useCharacterStore, Message } from "@/store/useCharacterStore";
 
 const QuickChatCard = () => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   //Zustand
-  const { selectedCharacter, inputPrompt, setInputPrompt } =
+  const { selectedCharacter, inputPrompt, setInputPrompt, chats, addMessage } =
     useCharacterStore();
-  const [messages, setMessages] = useState<Messages[]>([]);
+  const currentMessages = chats[selectedCharacter.name] || [];
 
   useEffect(() => {
     if (textareaRef.current) {
@@ -27,12 +21,12 @@ const QuickChatCard = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputPrompt.trim()) return;
-    const userMessage: Messages = {
+    const userMessage: Message = {
       id: Date.now().toString(),
       role: "user",
       content: inputPrompt.trim(),
     };
-    setMessages((prev) => [...prev, userMessage]);
+    addMessage(selectedCharacter.name, userMessage);
     setInputPrompt("");
   };
   return (
@@ -58,7 +52,7 @@ const QuickChatCard = () => {
       </header>
 
       {/* Сообщения в чате */}
-      {messages.length === 0 ? (
+      {currentMessages.length === 0 ? (
         <div className="flex flex-1 items-center justify-center p-2">
           <div className="flex max-w-70 flex-col items-center justify-center rounded-3xl border border-white bg-white/50 p-6 text-center shadow-xs backdrop-blur-md">
             <div className="mb-3 h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-sm">
@@ -83,7 +77,7 @@ const QuickChatCard = () => {
         </div>
       ) : (
         <div className="mt-6 flex w-full flex-1 scrollbar-thin flex-col gap-4 overflow-y-auto pr-2">
-          {messages.map((msg) => (
+          {currentMessages.map((msg) => (
             <div key={msg.id} className="flex w-full flex-col">
               {msg.role === "user" ? (
                 <div className="ml-auto w-fit max-w-[80%] rounded-2xl bg-[#4bc5fa] px-4 py-3 text-[14px] leading-[140%] text-white shadow-xs">

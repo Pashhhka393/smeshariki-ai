@@ -1,19 +1,21 @@
 "use client";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { Character, useCharacterStore } from "@/store/useCharacterStore";
-import { useEffect } from "react";
+import { useCharacterStore } from "@/store/useCharacterStore";
 
 const QuickChatCard = () => {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   //Zustand
-  const selectedCharacter: Character = useCharacterStore(
-    (state) => state.selectedCharacter,
-  );
+  const { selectedCharacter, inputPrompt, setInputPrompt } =
+    useCharacterStore();
 
   useEffect(() => {
-    localStorage.setItem("character", JSON.stringify(selectedCharacter));
-  });
-
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto";
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  }, [inputPrompt]);
   return (
     <article className="col-span-1 flex h-130 flex-col justify-between rounded-4xl border-[1.50px] border-white bg-white/45 p-5 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl md:col-span-5">
       <header className="flex w-full items-center justify-between">
@@ -86,10 +88,13 @@ const QuickChatCard = () => {
       </div>
 
       <form className="mt-5 flex w-full items-center justify-between rounded-[20px] bg-white px-4 py-2.5 shadow-xs">
-        <input
-          className="flex-1 border-none text-sm outline-none placeholder:text-[#879ba6]"
+        <textarea
+          ref={textareaRef}
+          rows={1}
+          value={inputPrompt}
+          className="flex-1 resize-none scrollbar-none items-end border-none text-sm outline-none placeholder:text-[#879ba6]"
           placeholder="Напиши ассистенту что-нибудь..."
-          type="text"
+          onChange={(e) => setInputPrompt(e.target.value)}
         />
         <button
           type="submit"

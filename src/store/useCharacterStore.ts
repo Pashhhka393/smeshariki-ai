@@ -12,6 +12,8 @@ export interface Character {
 interface CharacterState {
   selectedCharacter: Character;
   setSelectedCharacter: (character: Character) => void;
+  inputPrompt: string;
+  setInputPrompt: (text: string) => void;
 }
 
 const defaultCharacter = {
@@ -28,9 +30,12 @@ export const useCharacterStore = create<CharacterState>()(
       selectedCharacter: defaultCharacter,
       setSelectedCharacter: (character: Character) =>
         set({ selectedCharacter: character }),
+      inputPrompt: "",
+      setInputPrompt: (text: string) => set({ inputPrompt: text }),
     }),
     {
       name: "smeshariki-character",
+      partialize: (state) => ({ selectedCharacter: state.selectedCharacter }),
     },
   ),
 );

@@ -28,9 +28,9 @@ const HeroCard = () => {
             <div className="flex h-6 w-6 shrink-0 cursor-pointer items-center justify-center rounded-full border-2 border-[#879ba6] transition hover:border-[#879ba6] hover:bg-gray-400 active:scale-95">
               <X className="h-3.5 w-3.5 text-[#879ba6] hover:text-white" />
             </div>
-            <input
-              className="flex-1 border-none bg-transparent text-sm text-[#4f636f] outline-none placeholder:text-[14px]"
-              type="text"
+            <textarea
+              className="flex-1 resize-none border-none bg-transparent text-sm text-[#4f636f] outline-none placeholder:text-[14px]"
+
               placeholder="Привет, Крош! Как построить самую быструю ракету?"
             />
             <div className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-2xl bg-[#4bc5fa] transition hover:bg-[#0ea3e3] active:scale-95 max-[380]:h-7 max-[380]:w-7">

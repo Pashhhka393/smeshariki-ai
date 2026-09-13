@@ -71,7 +71,7 @@ const CharactersCard = () => {
               Выбери собеседника
             </h1>
             <Link
-              className="text-[13px] font-semibold text-[#4bc5fa] transition hover:text-[#2babe2] max-[420]:text-[10px]"
+              className="text-[14px] font-semibold text-[#4bc5fa] transition hover:text-[#2babe2] max-[420]:text-[12px]"
               href="/characters"
             >
               Всего 9 героев →

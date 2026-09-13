@@ -1,3 +1,5 @@
+"use client"
+import { useCharacterStore } from "@/store/useCharacterStore";
 import { Compass } from "lucide-react";
 
 const quickPrompts = [
@@ -28,11 +30,13 @@ const quickPrompts = [
 ];
 
 const QuickStartCard = () => {
+  const { setInputPrompt } = useCharacterStore();
+
   return (
     <article className="col-span-1 rounded-4xl border-[1.50px] border-white bg-white/45 px-10 py-10 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl lg:col-span-4">
       <div className="mb-5 flex items-center justify-between">
         <Compass className="h-12 w-12 fill-yellow-300 text-white" />
-        <p className=" w-fit rounded-[100px] bg-[#fffde7] px-3 py-1.5 text-[12px] font-bold text-[#b78103] uppercase">
+        <p className="w-fit rounded-[100px] bg-[#fffde7] px-3 py-1.5 text-[12px] font-bold text-[#b78103] uppercase">
           Быстрый старт
         </p>
       </div>
@@ -51,6 +55,7 @@ const QuickStartCard = () => {
             key={item.id}
             className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white bg-white/70 px-4 py-2.5 text-[13px] font-bold text-[#4f636f] shadow-xs transition-all hover:border-[#4bc5fa] hover:bg-white hover:text-[#4bc5fa] active:scale-95"
             type="button"
+            onClick={() => setInputPrompt(item.prompt)}
           >
             <span>{item.label}</span>
           </button>

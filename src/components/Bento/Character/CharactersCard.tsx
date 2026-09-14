@@ -51,6 +51,30 @@ export const smesharikiInfo = [
     keyWord: "Природа",
     welcomeMessage: "Укуси меня пчела! Здорово, дружище, чем помочь?",
   },
+  {
+    name: "Кар Карыч",
+    avatarImg: "/smeshariki/kopatych.jpg",
+    description:
+      "Поделится секретами садоводства, труда и расскажет душевные истории.",
+    keyWord: "Природа",
+    welcomeMessage: "Укуси меня пчела! Здорово, дружище, чем помочь?",
+  },
+  {
+    name: "Пин",
+    avatarImg: "/smeshariki/kopatych.jpg",
+    description:
+      "Поделится секретами садоводства, труда и расскажет душевные истории.",
+    keyWord: "Природа",
+    welcomeMessage: "Укуси меня пчела! Здорово, дружище, чем помочь?",
+  },
+  {
+    name: "Совунья",
+    avatarImg: "/smeshariki/kopatych.jpg",
+    description:
+      "Поделится секретами садоводства, труда и расскажет душевные истории.",
+    keyWord: "Природа",
+    welcomeMessage: "Укуси меня пчела! Здорово, дружище, чем помочь?",
+  },
 ];
 
 const CharactersCard = () => {
@@ -70,12 +94,6 @@ const CharactersCard = () => {
             <h1 className="text-[20px] font-extrabold text-[#1c252c] max-[420]:text-[16px]">
               Выбери собеседника
             </h1>
-            <Link
-              className="text-[14px] font-semibold text-[#4bc5fa] transition hover:text-[#2babe2] max-[420]:text-[12px]"
-              href="/characters"
-            >
-              Всего 9 героев →
-            </Link>
           </div>
         </header>
 

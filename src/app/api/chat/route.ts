@@ -1,19 +1,17 @@
 import { NextResponse } from "next/server";
-import https from "https";
+import { Agent, request } from "undici";
 
-interface SberRequestInit extends RequestInit {
-  agent?: https.Agent;
-}
-
-const agent = new https.Agent({
-  rejectUnauthorized: false,
+const dispatcher = new Agent({
+  connect: {
+    rejectUnauthorized: false,
+  },
 });
 
 export async function POST(req: Request) {
   try {
     const { prompt, characterName } = await req.json();
 
-    const authResponse = await fetch(
+    const authResponse = await request(
       "https://ngw.devices.sberbank.ru:9443/api/v2/oauth",
       {
         method: "POST",
@@ -25,17 +23,27 @@ export async function POST(req: Request) {
         },
         body: new URLSearchParams({
           scope: "GIGACHAT_API_PERS",
-        }),
-        agent: agent,
-      } as SberRequestInit,
+        }).toString(),
+        dispatcher,
+      },
     );
 
-    const authData = await authResponse.json();
+    if (authResponse.statusCode < 200 || authResponse.statusCode >= 300) {
+      const errorText = await authResponse.body.text();
+      throw new Error(`Ошибка авторизации GigaChat: ${errorText}`);
+    }
+
+    const authData = (await authResponse.body.json()) as {
+      access_token?: string;
+    };
+
     const token = authData.access_token;
 
-    if (!token) throw new Error("Ошибка");
+    if (!token) {
+      throw new Error("GigaChat не вернул access_token");
+    }
 
-    const chatResponse = await fetch(
+    const chatResponse = await request(
       "https://gigachat.devices.sberbank.ru/api/v1/chat/completions",
       {
         method: "POST",
@@ -49,11 +57,8 @@ export async function POST(req: Request) {
           messages: [
             {
               role: "system",
-              content: `Ты — персонаж мультфильма "Смешарики" по имени ${characterName}. 
-            Отвечай максимально точно в его характере, используй его любимые фразочки и стиль речи. 
-            Будь дружелюбным и поддерживающим, помогай пользователю с его вопросами, но не выходи за рамки характера ${characterName}.если пользователь задаёт вопрос, 
-            который не соответствует характеру ${characterName}, 
-            вежливо откажись отвечать и предложи задать другой вопрос.`,
+              content: `Ты — персонаж мультфильма "Смешарики" по имени ${characterName}.
+Отвечай в его характере, будь дружелюбным и помогай пользователю.`,
             },
             {
               role: "user",
@@ -62,12 +67,28 @@ export async function POST(req: Request) {
           ],
           temperature: 0.7,
         }),
-        agent: agent,
-      } as SberRequestInit,
+        dispatcher,
+      },
     );
 
-    const chatData = await chatResponse.json();
-    const botMessage = chatData.choices[0].message.content;
+    if (chatResponse.statusCode < 200 || chatResponse.statusCode >= 300) {
+      const errorText = await chatResponse.body.text();
+      throw new Error(`Ошибка GigaChat: ${errorText}`);
+    }
+
+    const chatData = (await chatResponse.body.json()) as {
+      choices?: Array<{
+        message?: {
+          content?: string;
+        };
+      }>;
+    };
+
+    const botMessage = chatData.choices?.[0]?.message?.content;
+
+    if (!botMessage) {
+      throw new Error("GigaChat вернул ответ без текста");
+    }
 
     return NextResponse.json({ text: botMessage });
   } catch (error: unknown) {

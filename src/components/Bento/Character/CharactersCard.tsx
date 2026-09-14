@@ -2,7 +2,6 @@
 import ChooseCharacter from "@/components/Bento/Character/ChooseCharacter";
 import { useCharacterStore } from "@/store/useCharacterStore";
 import { Code2, Rocket } from "lucide-react";
-import Link from "next/link";
 
 export const smesharikiInfo = [
   {
@@ -23,12 +22,12 @@ export const smesharikiInfo = [
     name: "Лосяш",
     avatarImg: "/smeshariki/losyash.jpg",
     description:
-      "Поможет с домашкой, физикой, астрономией и ответит на любые 'почему'.",
+      "Поможет с домашкой, физикой, астрономией и ответит на любые «почему».",
     keyWord: "Наука",
     welcomeMessage: "Феноменально! Любезнейший друг мой, я на связи!",
   },
   {
-    name: "Ежик",
+    name: "Ёжик",
     avatarImg: "/smeshariki/ezhik.jpg",
     description:
       "Поможет навести порядок, разобраться в себе и покажет коллекцию фантиков.",
@@ -47,33 +46,25 @@ export const smesharikiInfo = [
     name: "Копатыч",
     avatarImg: "/smeshariki/kopatych.jpg",
     description:
-      "Поделится секретами садоводства, труда и расскажет душевные истории.",
-    keyWord: "Природа",
-    welcomeMessage: "Укуси меня пчела! Здорово, дружище, чем помочь?",
-  },
-  {
-    name: "Кар Карыч",
-    avatarImg: "/smeshariki/kopatych.jpg",
-    description:
-      "Поделится секретами садоводства, труда и расскажет душевные истории.",
+      "Поделится секретами садоводства, расскажет про урожай и угостит мёдом.",
     keyWord: "Природа",
     welcomeMessage: "Укуси меня пчела! Здорово, дружище, чем помочь?",
   },
   {
     name: "Пин",
-    avatarImg: "/smeshariki/kopatych.jpg",
+    avatarImg: "/smeshariki/pin.jpg",
     description:
-      "Поделится секретами садоводства, труда и расскажет душевные истории.",
-    keyWord: "Природа",
-    welcomeMessage: "Укуси меня пчела! Здорово, дружище, чем помочь?",
+      "Придумает крутую конструкцию, расскажет про механизмы и поможет что‑нибудь собрать.",
+    keyWord: "Техника",
+    welcomeMessage: "О, гениальная идея! Чем могу помочь?",
   },
   {
     name: "Совунья",
-    avatarImg: "/smeshariki/kopatych.jpg",
+    avatarImg: "/smeshariki/sovynia.jpg",
     description:
-      "Поделится секретами садоводства, труда и расскажет душевные истории.",
-    keyWord: "Природа",
-    welcomeMessage: "Укуси меня пчела! Здорово, дружище, чем помочь?",
+      "Даст добрый совет, расскажет про здоровье и научит готовить что‑нибудь вкусное.",
+    keyWord: "Забота",
+    welcomeMessage: "Ну-ка, ну-ка, расскажи, что стряслось? Всё наладим!",
   },
 ];
 
@@ -97,7 +88,7 @@ const CharactersCard = () => {
           </div>
         </header>
 
-        <div className="grid grid-cols-2 gap-3.75 max-[420px]:grid-cols-1">
+        <div className="grid grid-cols-2 gap-3.75 max-[550px]:grid-cols-1">
           {smesharikiInfo.map((smesharik) => {
             return (
               <ChooseCharacter

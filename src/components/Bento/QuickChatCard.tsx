@@ -92,6 +92,7 @@ const QuickChatCard = () => {
             <h2 className="text-[18px] font-extrabold whitespace-nowrap text-[#1c252c]">
               {selectedCharacter.name} AI
             </h2>
+
             <span className="text-[11px] text-green-500">В сети</span>
           </div>
         </div>
@@ -151,6 +152,11 @@ const QuickChatCard = () => {
               )}
             </div>
           ))}
+          {isLoading && (
+            <div className="mr-auto rounded-2xl bg-[#7bd082] px-4 py-3 text-sm text-white">
+              {selectedCharacter.name} печатает…
+            </div>
+          )}
         </div>
       )}
 
@@ -173,8 +179,9 @@ const QuickChatCard = () => {
           onChange={(e) => setInputPrompt(e.target.value)}
         />
         <button
+          disabled={isLoading}
           type="submit"
-          className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full bg-[#4bc5fa] transition-all hover:bg-[#23bafb] active:scale-95"
+          className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full bg-[#4bc5fa] transition-all hover:bg-[#23bafb] active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
         >
           <ArrowUpRight className="h-5 w-5 text-white" />
         </button>

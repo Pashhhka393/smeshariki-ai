@@ -33,7 +33,7 @@ export async function POST(req: Request) {
     const authData = await authResponse.json();
     const token = authData.access_token;
 
-    if (!token) throw new Error("Failed to get access token");
+    if (!token) throw new Error("Ошибка");
 
     const chatResponse = await fetch(
       "https://gigachat.devices.sberbank.ru/api/v1/chat/completions",

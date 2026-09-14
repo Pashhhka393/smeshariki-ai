@@ -1,10 +1,11 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { useCharacterStore, Message } from "@/store/useCharacterStore";
 
 const QuickChatCard = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   //Zustand
   const { selectedCharacter, inputPrompt, setInputPrompt, chats, addMessage } =
@@ -18,16 +19,61 @@ const QuickChatCard = () => {
     }
   }, [inputPrompt]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!inputPrompt.trim()) return;
+
+    const prompt = inputPrompt.trim();
+
+    if (!prompt || isLoading) return;
+
+    const characterName = selectedCharacter.name;
+
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       role: "user",
-      content: inputPrompt.trim(),
+      content: prompt,
     };
-    addMessage(selectedCharacter.name, userMessage);
+
+    addMessage(characterName, userMessage);
     setInputPrompt("");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt,
+          characterName,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.text) {
+        throw new Error("Не удалось получить ответ");
+      }
+
+      const assistantMessage: Message = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content: data.text,
+      };
+
+      addMessage(characterName, assistantMessage);
+    } catch (error) {
+      console.error(error);
+
+      addMessage(characterName, {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content: "Не удалось связаться с ассистентом. Попробуй ещё раз.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <article className="col-span-1 flex h-130 flex-col justify-between rounded-4xl border-[1.50px] border-white bg-white/45 p-5 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl md:col-span-5">
@@ -51,7 +97,6 @@ const QuickChatCard = () => {
         </div>
       </header>
 
-      {/* Сообщения в чате */}
       {currentMessages.length === 0 ? (
         <div className="flex flex-1 items-center justify-center p-2">
           <div className="flex max-w-70 flex-col items-center justify-center rounded-3xl border border-white bg-white/50 p-6 text-center shadow-xs backdrop-blur-md">

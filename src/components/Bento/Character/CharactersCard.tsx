@@ -66,6 +66,15 @@ export const smesharikiInfo = [
     keyWord: "Забота",
     welcomeMessage: "Ну-ка, ну-ка, расскажи, что стряслось? Всё наладим!",
   },
+  {
+    name: "Кар‑Карыч",
+    avatarImg: "/smeshariki/karych.jpg",
+    description:
+      "Расскажет мудрую историю, поделится жизненным опытом и даст совет от старого друга.",
+    keyWord: "Мудрость",
+    welcomeMessage:
+      "О, мой юный друг! Рад видеть тебя — расскажи, что на душе?",
+  },
 ];
 
 const CharactersCard = () => {
@@ -121,7 +130,7 @@ const CharactersCard = () => {
           </div>
         </article>
 
-        <article className="flex h-37.5 cursor-pointer items-center justify-between rounded-4xl bg-[#4bc5fa] px-6 py-5 shadow-[0_12px_24px_0_rgba(75,197,250,0.4)] transition-all hover:bg-[#23bafb]">
+        <article className="flex h-37.5 items-center justify-between rounded-4xl bg-[#4bc5fa] px-6 py-5 shadow-[0_12px_24px_0_rgba(75,197,250,0.4)] transition-all hover:bg-[#23bafb]">
           <div className="text-white">
             <h2 className="mb-1 text-[22px] leading-tight font-black">
               Начать общение

@@ -76,7 +76,7 @@ const QuickChatCard = () => {
     }
   };
   return (
-    <article className="col-span-1 flex h-130 flex-col justify-between rounded-4xl border-[1.50px] border-white bg-white/45 p-5 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl md:col-span-5">
+    <article className="col-span-1 flex min-h-130 flex-col justify-between rounded-4xl border-[1.50px] border-white bg-white/45 p-5 shadow-[0_16px_32px_0_rgba(75,197,250,0.08)] backdrop-blur-xl md:col-span-5">
       <header className="flex w-full items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="h-9 w-9 shrink-0 cursor-pointer overflow-hidden rounded-full">
